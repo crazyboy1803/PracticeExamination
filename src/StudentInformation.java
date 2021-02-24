@@ -10,8 +10,6 @@ class Student
 public class StudentInformation
 {
     Student START;
-    int c=0;
-    int age=18;
     StudentInformation()
     {
         START = null;
@@ -20,15 +18,15 @@ public class StudentInformation
     {
         System.out.println("Entry start");
         Scanner sc2 = new Scanner(System.in);
-//        System.out.print("Enter Student ID=");
-//        int id = sc2.nextInt();
+        System.out.print("Enter Student ID=");
+        int id = sc2.nextInt();
         System.out.print("Enter Name=");
         String name= sc2.next();
-//        System.out.print("Enter Age=");
-//        int age=sc2.nextInt();
+        System.out.print("Enter Age=");
+        int age=sc2.nextInt();
         
         Student newnode = new Student();
-        newnode.Studentid = ++c;
+        newnode.Studentid = id;
         newnode.StudentName=name;
         newnode.Studentage=age;
         newnode.previous=null;
