@@ -46,73 +46,68 @@ class InterfaceQueue implements ADTQueue
     @Override
     public int delete()
     {
-       if(this.isEmpty())
-        {
-            System.out.println("Queue Empty");
-        }
+       if(!isEmpty())
+       {
+           System.out.println("Deleted :"+Front.data);
+           Front = Front.Next;
+       }
         else
-        {
-            System.out.println("Deleted :"+Front.data);
-            Front = Front.Next;
-        }
+       {
+           System.out.println("Queue Empty");
+       }
         return 0;
     }
     @Override
     public boolean isEmpty()
     {
-        if(Front==null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Front==null;
     }
     @Override
     public void traverse()
     {
-         if(this.isEmpty())
-        {
-            System.out.println("Queue Empty");
-        }
+         if(!isEmpty())
+         {
+             System.out.println(".....SinglyQueueLinkedlist.....");
+             Node4 current;
+             for(current = Front ; current != null ; current=current.Next)
+             {
+                 System.out.print(" "+current.data);
+             }
+         }
         else
-        {
-            System.out.println(".....SinglyQueueLinkedlist.....");
-            Node4 current;
-            for(current = Front ; current != null ; current=current.Next)
-            {
-                System.out.print(" "+current.data);
-            }
-        }
+         {
+             System.out.println("Queue Empty");
+         }
     }
     @Override
     public boolean search(int sea)
     {
-        int count=0;
-        if(this.isEmpty())
+        boolean flag = false;
+        if(!isEmpty())
         {
-            System.out.println("List Empty");
-        }
-        else
-        {
+            int count=0;
             Node4 current;
             for(current=Front;current != Rear ;current=current.Next)
             {
                 if(current.data == sea)
-                {
-                    count++;
+                {            
+                    flag = true;
                     break;
                 }
             }
         }
-        return count>0;
+        else
+        {
+            System.out.println("List Empty");
+        }
+        return flag;
     }
     public static void main(String arg[])
     {
         InterfaceQueue obj = new InterfaceQueue();
         while(true)
         {
+            1:
             System.out.println("\npress 1 for insert");
             System.out.println("press 2 for delete");
             System.out.println("press 3 for traverse");
