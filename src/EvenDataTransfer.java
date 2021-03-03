@@ -19,7 +19,7 @@ public class EvenDataTransfer
     {
         START = null;
         START1 = null;
-        tra1=START;
+        tra1=null;
     }
     void addnode()
     {
@@ -47,7 +47,11 @@ public class EvenDataTransfer
         System.out.println("Data Inserted.....");
     }
      void transferdata()
-    {        
+    {
+        if(tra1 == null)
+        {
+            tra1=START; 
+        }        
         if(START==null)
         {
             System.out.println("Singly linked list is empty");
@@ -56,10 +60,8 @@ public class EvenDataTransfer
         {
             while(tra1 != null)
             {
-                System.out.println("1");
                 if(tra1.rollno%2==0)
                 {
-                    System.out.println("2");
                     int item = tra1.rollno ;
                 
                     Nodee newnode = new Nodee();

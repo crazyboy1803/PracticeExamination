@@ -121,7 +121,7 @@ public class StudentInformation
         }
         
     }
-    void SortedNode()
+    void SortedNodebyName()
     {
         if(START==null)
         {
@@ -156,6 +156,76 @@ public class StudentInformation
             }
         }
     }
+    void SortedNodebyId()
+    {
+        if(START==null)
+        {
+            System.out.println("No record found");
+        }
+        else
+        {
+            Student current = START;
+            int id,age;
+            String name;
+            while(current.next!=null)
+            {                
+                Student current_next = current.next;                
+                while(current_next !=null)
+                {
+                    if(current.Studentid>current_next.Studentid)
+                    {
+                        name=current.StudentName;
+                        id=current.Studentid;
+                        age=current.Studentage;
+                        current.StudentName=current_next.StudentName;
+                        current.Studentid=current_next.Studentid;
+                        current.Studentage=current_next.Studentage;
+                        current_next.StudentName=name;
+                        current_next.Studentid=id;
+                        current_next.Studentage=age;
+                    }
+                      
+                    current_next=current_next.next;
+                }
+                current=current.next;
+            }
+        }
+    }
+    void SortedNodebyAge()
+    {
+        if(START==null)
+        {
+            System.out.println("No record found");
+        }
+        else
+        {
+            Student current = START;
+            int id,age;
+            String name;
+            while(current.next!=null)
+            {                
+                Student current_next = current.next;                
+                while(current_next !=null)
+                {
+                    if(current.Studentage>current_next.Studentage)
+                    {
+                        name=current.StudentName;
+                        id=current.Studentid;
+                        age=current.Studentage;
+                        current.StudentName=current_next.StudentName;
+                        current.Studentid=current_next.Studentid;
+                        current.Studentage=current_next.Studentage;
+                        current_next.StudentName=name;
+                        current_next.Studentid=id;
+                        current_next.Studentage=age;
+                    }
+                      
+                    current_next=current_next.next;
+                }
+                current=current.next;
+            }
+        }
+    }
     void traversenode()
     {
         if(START ==null)
@@ -164,7 +234,24 @@ public class StudentInformation
         }
         else
         {
-            this.SortedNode();
+            System.out.println("Enter 1 for sort by name");
+            System.out.println("Enter 2 for sort by id");
+            System.out.println("Enter 3 for sort by age");
+            System.out.println("Enter any key for don't sort");
+            Scanner sc4=new Scanner(System.in);
+            int ch=sc4.nextInt();
+            if(ch==1)
+            {
+                this.SortedNodebyName();  
+            }
+            else if(ch==2)
+            {
+                this.SortedNodebyAge();
+            }
+            else if(ch==3)
+            {
+                this.SortedNodebyId();
+            }            
             Student current;
             System.out.print("   "+"ID");
             System.out.print("   "+"NAME");
